@@ -1,19 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const Joi = require('joi');
 
 const bodyParser = require('body-parser');
 
 const app = express();
 
-var MongoClient = require('mongodb');
+const mongoosee = require("mongoose");
 var url = "mongodb://localhost:27017/notificationSys";
 
-MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
+mongoosee.connect(url, { useUnifiedTopology: true }, function (err, db) {
     if (err) {
         throw err;
     }
     console.log("Connected!");
-    db.close();
 });
 
 app.listen(3000, () => {
@@ -21,5 +21,5 @@ app.listen(3000, () => {
 });
 
 const router = require('./routes/customer')
-app.use('/', router)
+app.use('/',router)
 
