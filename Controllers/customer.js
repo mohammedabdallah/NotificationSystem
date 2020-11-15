@@ -1,5 +1,4 @@
 const Customer = require('../models/customer')
-const mongoose = require('mongoose')
 function create(req,res,next){
   let name = req.body.name;
   let mobile = req.body.mobile;

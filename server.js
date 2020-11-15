@@ -22,5 +22,5 @@ app.listen(3000, () => {
 });
 
 const router = require('./routes/customer')
-app.use('/api/customer/create',router)
+app.use('/',router)
 
