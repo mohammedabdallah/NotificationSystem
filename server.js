@@ -8,9 +8,8 @@ const app = express();
 var MongoClient = require('mongodb');
 var url = "mongodb://localhost:27017/notificationSys";
 
-MongoClient.connect(url,{useUnifiedTopology:true}, function (err, db) {
-    if (err)
-    {
+MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
+    if (err) {
         throw err;
     }
     console.log("Connected!");
@@ -22,5 +21,5 @@ app.listen(3000, () => {
 });
 
 const router = require('./routes/customer')
-app.use('/',router)
+app.use('/', router)
 
