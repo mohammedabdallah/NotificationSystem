@@ -5,5 +5,5 @@ const validationMiddleware = require('../middleware/customer-validation-middlewa
 const bodyparser = require('body-parser');
 const schema  = require('../validations/schema')
 router.use(bodyparser.json())
-router.post('/api/customer/create', validationMiddleware(schema),cusotmerController.create)
+router.post('/customer/create', validationMiddleware(schema),cusotmerController.create)
 module.exports = router
