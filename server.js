@@ -27,4 +27,5 @@ app.use(_routePrefix, createCustomer)
 const sendEmail = require('./routes/sendEmail')
 app.use(_routePrefix, sendEmail)
 
-const sendPushNotification = require('./routes/sendPushNotification')
+const createTrip = require('./routes/trip')
+app.use(_routePrefix,createTrip)
