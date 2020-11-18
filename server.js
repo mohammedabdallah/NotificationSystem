@@ -9,7 +9,7 @@ const app = express();
 const mongoosee = require("mongoose");
 var url = "mongodb://localhost:27017/notificationSys";
 
-mongoosee.connect(url, { useNewUrlParser: true }, function (err, db) {
+mongoosee.connect(url, { useNewUrlParser: true,autoIndex:true }, function (err, db) {
     if (err) {
         throw err;
     }
@@ -19,10 +19,12 @@ mongoosee.connect(url, { useNewUrlParser: true }, function (err, db) {
 app.listen(3000, () => {
     console.log("The project is running")
 });
- let _routePrefix = '/api';
+var _routePrefix = '/api';
 
 const createCustomer = require('./routes/customer')
-app.use(_routePrefix,createCustomer)
+app.use(_routePrefix, createCustomer)
 
 const sendEmail = require('./routes/sendEmail')
-app.use(_routePrefix,sendEmail)
+app.use(_routePrefix, sendEmail)
+
+const sendPushNotification = require('./routes/sendPushNotification')

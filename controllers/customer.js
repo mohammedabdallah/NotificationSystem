@@ -4,15 +4,15 @@ async function create(req, res, next) {
         let name = req.body.name;
         let mobile = req.body.mobile;
         let email = req.body.email;
-        let customer = new Customer({
+        let customer = {
             name,
             mobile,
             email
-        });
-        const result = await customer.save();
+        };
+        const result = await Customer.create(customer);
         return res.status(200).json(result);
     } catch (error) {
-        return res.status(500).json({message:error.message()});
+        return res.status(500).json({message:error.message});
     }
 }
 module.exports.create = create
