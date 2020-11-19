@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const uniqueValidator = require('mongoose-unique-validator');
 
 const notificationSchema = new mongoose.Schema({
-    receiverID: {
+    receiversIDs: [{
 
 
         type: mongoose.Schema.Types.ObjectId,
         ref: "notification"
-    },
+    }],
     title: { type: String, required: true},
     content: { type: String, required: true },
 });
