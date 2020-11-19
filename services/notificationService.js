@@ -1,12 +1,14 @@
 const Notification = require('../models/notification')
 const Trip = require('../models/trip');
 
-async function sendNotifictionToUsers()
+function sendNotifictionToUsers(custoemrsIDS)
 {
-    let result = getSemiEndedTripes();
-    console.log(result.count());
+    console.log(custoemrsIDS);
+    custoemrsIDS.forEach(function(trip){
+        console.log("Sending Message to each rider...")
+    });
 }
-async function createTrip(req,res)
+async function createNotification(req,res)
 {
     let title = req.body.title;
     let content = req.body.content;
@@ -14,14 +16,17 @@ async function createTrip(req,res)
         title,
         content
     };
+    //wait untile service create the notification document then we will call notficiation function
     let result = await Notification.create(message);
+    let customersIDS = await getSemiEndedTripes();
+    sendNotifictionToUsers(customersIDS);
     return res.status(200).json(result);
 }
-function getSemiEndedTripes()
+async function getSemiEndedTripes()
 {
-    return Trip.find({dropOffMin:{$lt:15}});
+    return  Trip.find({dropOffMin:{$lt:15}}).select({_id:1});
 }
 module.exports = {
-    createTrip,
+    createNotification,
     sendNotifictionToUsers
 }
