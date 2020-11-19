@@ -29,3 +29,6 @@ app.use(_routePrefix, sendEmail)
 
 const createTrip = require('./routes/trip')
 app.use(_routePrefix,createTrip)
+
+const dropNotification = require('./routes/dropOffNotification')
+app.use(_routePrefix,dropNotification)
