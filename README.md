@@ -5,9 +5,9 @@
 - [x] send welcome mail to registred user
 - [x] create trip and attach customers to it
 - [x] create notifications to attached riderd if their drop station is less than 15 min
-- [] write more unit test
-- [] write docker compose file
-- [] enhance notification schema 
+- [ ] write more unit test
+- [ ] write docker compose file
+- [ ] enhance notification schema 
 
 
 
